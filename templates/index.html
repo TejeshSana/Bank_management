@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banking System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="shortcut icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnbK7Z0wW1pExD_7SFnwHx1o3yW7rNoiG0XQ&s" type="image/x-icon">
+</head>
+<body>
+    <div class="header">
+        <img src="{{ url_for('static', filename='bank.png') }}" alt="Bank Logo" class="bank">
+        <h1>Banking System</h1>
+        <a href="{{ url_for('create_account') }}" class="create-btn">
+            <span class="box">Account Creation</span>
+        </a>
+    </div>
+
+    <!-- Flash messages -->
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <div class="flash-messages">
+                {% for message in messages %}
+                    <p class="flash-message">{{ message }}</p>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
+    
+    <!-- Check Balance -->
+    <section class="form-section">
+        <h2>Check Balance</h2>
+        <form action="/balance" method="POST" class="check">
+            <div class="form-control">
+                <input type="text" name="account_id" required>
+                <label>
+                    <span style="transition-delay:0ms">A</span>
+                    <span style="transition-delay:50ms">c</span>
+                    <span style="transition-delay:100ms">c</span>
+                    <span style="transition-delay:150ms">o</span>
+                    <span style="transition-delay:200ms">u</span>
+                    <span style="transition-delay:250ms">n</span>
+                    <span style="transition-delay:300ms">t</span>
+                    <span style="transition-delay:350ms"> </span>
+                    <span style="transition-delay:400ms">I</span>
+                    <span style="transition-delay:450ms">D</span>
+                </label>
+            </div>
+            <button type="submit">
+                <span class="box">Check Balance</span>
+            </button>
+        </form>
+    </section>
+
+    <!-- Deposit -->
+    <section class="form-section">
+        <h2>Deposit</h2>
+        <form action="/transaction" method="POST" class="deposit">
+            <input type="hidden" name="transaction_type" value="Deposit">
+            <div class="form-control">
+                <input type="text" name="account_id" required>
+                <label>
+                    <span style="transition-delay:0ms">A</span>
+                    <span style="transition-delay:50ms">c</span>
+                    <span style="transition-delay:100ms">c</span>
+                    <span style="transition-delay:150ms">o</span>
+                    <span style="transition-delay:200ms">u</span>
+                    <span style="transition-delay:250ms">n</span>
+                    <span style="transition-delay:300ms">t</span>
+                    <span style="transition-delay:350ms"> </span>
+                    <span style="transition-delay:400ms">I</span>
+                    <span style="transition-delay:450ms">D</span>
+                </label>
+            </div>
+            <div class="form-control">
+                <input type="number" step="0.01" name="amount" required>
+                <label>
+                    <span style="transition-delay:0ms">A</span>
+                    <span style="transition-delay:50ms">m</span>
+                    <span style="transition-delay:100ms">o</span>
+                    <span style="transition-delay:150ms">u</span>
+                    <span style="transition-delay:200ms">n</span>
+                    <span style="transition-delay:250ms">t</span>
+                </label>
+            </div>
+            <button type="submit">
+                <span class="box">Deposit</span>
+            </button>
+        </form>
+    </section>
+
+    <!-- Withdrawal -->
+    <section class="form-section">
+        <h2>Withdrawal</h2>
+        <form action="/transaction" method="POST" class="withdraw">
+            <input type="hidden" name="transaction_type" value="Withdrawal">
+            <div class="form-control">
+                <input type="text" name="account_id" required>
+                <label>
+                    <span style="transition-delay:0ms">A</span>
+                    <span style="transition-delay:50ms">c</span>
+                    <span style="transition-delay:100ms">c</span>
+                    <span style="transition-delay:150ms">o</span>
+                    <span style="transition-delay:200ms">u</span>
+                    <span style="transition-delay:250ms">n</span>
+                    <span style="transition-delay:300ms">t</span>
+                    <span style="transition-delay:350ms"> </span>
+                    <span style="transition-delay:400ms">I</span>
+                    <span style="transition-delay:450ms">D</span>
+                </label>
+            </div>
+            <div class="form-control">
+                <input type="number" step="0.01" name="amount" required>
+                <label>
+                    <span style="transition-delay:0ms">A</span>
+                    <span style="transition-delay:50ms">m</span>
+                    <span style="transition-delay:100ms">o</span>
+                    <span style="transition-delay:150ms">u</span>
+                    <span style="transition-delay:200ms">n</span>
+                    <span style="transition-delay:250ms">t</span>
+                </label>
+            </div>
+            <button type="submit">
+                <span class="box">Withdraw</span>
+            </button>
+        </form>
+    </section>
+
+    <!-- Transfer -->
+    <section class="form-section">
+        <h2>Transfer</h2>
+        <form action="/transaction" method="POST" class="transfer">
+            <input type="hidden" name="transaction_type" value="Transfer">
+            <div class="form-control">
+                <input type="text" name="account_id" required>
+                <label>
+                    <span style="transition-delay:0ms">F</span>
+                    <span style="transition-delay:50ms">r</span>
+                    <span style="transition-delay:100ms">o</span>
+                    <span style="transition-delay:150ms">m</span>
+                    <span style="transition-delay:200ms"> </span>
+                    <span style="transition-delay:250ms">A</span>
+                    <span style="transition-delay:300ms">c</span>
+                    <span style="transition-delay:350ms">c</span>
+                    <span style="transition-delay:400ms">o</span>
+                    <span style="transition-delay:450ms">u</span>
+                    <span style="transition-delay:500ms">n</span>
+                    <span style="transition-delay:550ms">t</span>
+                </label>
+            </div>
+            <div class="form-control">
+                <input type="text" name="target_account_id" required>
+                <label>
+                    <span style="transition-delay:0ms">T</span>
+                    <span style="transition-delay:50ms">o</span>
+                    <span style="transition-delay:100ms"> </span>
+                    <span style="transition-delay:150ms">A</span>
+                    <span style="transition-delay:200ms">c</span>
+                    <span style="transition-delay:250ms">c</span>
+                    <span style="transition-delay:300ms">o</span>
+                    <span style="transition-delay:350ms">u</span>
+                    <span style="transition-delay:400ms">n</span>
+                    <span style="transition-delay:450ms">t</span>
+                </label>
+            </div>
+            <div class="form-control">
+                <input type="number" step="0.01" name="amount" required>
+                <label>
+                    <span style="transition-delay:0ms">A</span>
+                    <span style="transition-delay:50ms">m</span>
+                    <span style="transition-delay:100ms">o</span>
+                    <span style="transition-delay:150ms">u</span>
+                    <span style="transition-delay:200ms">n</span>
+                    <span style="transition-delay:250ms">t</span>
+                </label>
+            </div>
+            <button type="submit">
+                <span class="box">Transfer</span>
+            </button>
+        </form>
+    </section>
+</body>
+</html>

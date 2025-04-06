@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="shortcut icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnbK7Z0wW1pExD_7SFnwHx1o3yW7rNoiG0XQ&s" type="image/x-icon">
+</head>
+<body>
+    <div class="header">
+        <img src="{{ url_for('static', filename='bank.png') }}" alt="Bank Logo" class="bank">
+        <h1>Create New Account</h1>
+    </div>
+
+    <!-- Flash messages -->
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <div class="flash-messages">
+                {% for message in messages %}
+                    <p class="flash-message">{{ message }}</p>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
+    
+
+    <section class="form-section">
+        <h2>Account Details</h2>
+        <form action="{{ url_for('create_account') }}" method="POST" class="create-account">
+            <div class="form-control">
+                <input type="text" name="customer_id" required>
+                <label>
+                    <span style="transition-delay:0ms">C</span>
+                    <span style="transition-delay:50ms">u</span>
+                    <span style="transition-delay:100ms">s</span>
+                    <span style="transition-delay:150ms">t</span>
+                    <span class="transition-delay:200ms">o</span>
+                    <span style="transition-delay:250ms">m</span>
+                    <span style="transition-delay:300ms">e</span>
+                    <span style="transition-delay:350ms">r</span>
+                    <span style="transition-delay:400ms"> </span>
+                    <span style="transition-delay:450ms">I</span>
+                    <span style="transition-delay:500ms">D</span>
+                </label>
+            </div>
+            <div class="form-control">
+                <input type="text" name="branch_id" required>
+                <label>
+                    <span style="transition-delay:0ms">B</span>
+                    <span style="transition-delay:50ms">r</span>
+                    <span style="transition-delay:100ms">a</span>
+                    <span style="transition-delay:150ms">n</span>
+                    <span style="transition-delay:200ms">c</span>
+                    <span style="transition-delay:250ms">h</span>
+                    <span style="transition-delay:300ms"> </span>
+                    <span style="transition-delay:350ms">I</span>
+                    <span style="transition-delay:400ms">D</span>
+                </label>
+            </div>
+            <div class="form-control">
+                <select name="account_type" required>
+                    <option value="" disabled selected>Select Account Type</option>
+                    <option value="Savings">Savings</option>
+                    <option value="Checking">Checking</option>
+                    <option value="Fixed Deposit">Fixed Deposit</option>
+                </select>
+            </div>
+            <div class="form-control">
+                <input type="number" step="0.01" name="initial_balance" required>
+                <label>
+                    <span style="transition-delay:0ms">I</span>
+                    <span style="transition-delay:50ms">n</span>
+                    <span style="transition-delay:100ms">i</span>
+                    <span style="transition-delay:150ms">t</span>
+                    <span style="transition-delay:200ms">i</span>
+                    <span style="transition-delay:250ms">a</span>
+                    <span style="transition-delay:300ms">l</span>
+                    <span style="transition-delay:350ms"> </span>
+                    <span style="transition-delay:400ms">B</span>
+                    <span style="transition-delay:450ms">a</span>
+                    <span style="transition-delay:500ms">l</span>
+                    <span style="transition-delay:550ms">a</span>
+                    <span style="transition-delay:600ms">n</span>
+                    <span style="transition-delay:650ms">c</span>
+                    <span style="transition-delay:700ms">e</span>
+                </label>
+            </div>
+            <div class="form-control">
+                <input type="date" name="date_opened" required class="date-input">
+                <label>
+                    <span style="transition-delay:0ms">D</span>
+                    <span style="transition-delay:50ms">a</span>
+                    <span style="transition-delay:100ms">t</span>
+                    <span style="transition-delay:150ms">e</span>
+                    <span style="transition-delay:200ms"> </span>
+                    <span style="transition-delay:250ms">O</span>
+                    <span style="transition-delay:300ms">p</span>
+                    <span style="transition-delay:350ms">e</span>
+                    <span style="transition-delay:400ms">n</span>
+                    <span style="transition-delay:450ms">e</span>
+                    <span style="transition-delay:500ms">d</span>
+                </label>
+            </div>
+            <button type="submit">
+                <span class="box">Create Account</span>
+            </button>
+        </form>
+        <a href="{{ url_for('home') }}" class="back-btn">
+            <span class="box">Back to Home</span>
+        </a>
+    </section>
+
+
+    
+</body>
+</html>

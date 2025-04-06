@@ -1,0 +1,135 @@
+/* General Styles */
+body {
+    background: linear-gradient(135deg, #e0eafc, #cfdef3);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin: 0;
+    padding: 20px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Header */
+.header {
+    background: #ffffff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    max-width: 800px;
+    z-index: 1000;
+}
+
+.bank {
+    height: 5em;
+    margin-right: 20px;
+}
+
+h1 {
+    color: #2c3e50;
+    font-size: 3em;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Balance Section */
+.balance-section {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    padding: 30px;
+    margin-top: 40px;
+    max-width: 600px;
+    width: 100%;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.balance-section:hover {
+    transform: translateY(-5px);
+}
+
+.balance-text {
+    font-size: 1.8em;
+    color: #2c3e50;
+    margin: 20px 0;
+}
+
+.balance-amount {
+    color: #27ae60;
+    font-weight: bold;
+    font-size: 2em;
+    padding: 5px 15px;
+    border-radius: 5px;
+}
+
+.error-text {
+    font-size: 1.6em;
+    color: #c0392b;
+    margin: 20px 0;
+    background: rgba(192, 57, 43, 0.1);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* Back Button */
+.back-btn {
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 20px;
+}
+
+.box {
+    display: inline-block;
+    width: 160px;
+    padding: 15px;
+    background: #3498db;
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.box:hover {
+    background: #2980b9;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .bank {
+        margin: 10px 0;
+    }
+
+    h1 {
+        font-size: 2.5em;
+    }
+
+    .balance-text, .error-text {
+        font-size: 1.4em;
+    }
+
+    .balance-amount {
+        font-size: 1.8em;
+    }
+
+    .box {
+        width: 140px;
+        font-size: 14px;
+    }
+}

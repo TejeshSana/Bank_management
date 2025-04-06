@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Balance</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style_bal.css') }}">
+    <link rel="shortcut icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnbK7Z0wW1pExD_7SFnwHx1o3yW7rNoiG0XQ&s" type="image/x-icon">
+</head>
+<body>
+    <div class="header">
+        <img src="{{ url_for('static', filename='bank.png') }}" alt="Bank Logo" class="bank">
+        <h1>Account Balance</h1>
+    </div>
+
+    <section class="balance-section">
+        {% if balance is number %}
+            <p class="balance-text">Your balance for Account ID <strong>{{ account_id }}</strong> is:     <span class="balance-amount">${{ balance|float|round(2) }}</span></p>
+        {% else %}
+            <p class="error-text">{{ balance }}</p>
+        {% endif %}
+        <a href="{{ url_for('home') }}" class="back-btn">
+            <span class="box">Back to Home</span>
+        </a>
+    </section>
+</body>
+</html>
