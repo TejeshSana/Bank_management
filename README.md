@@ -19,6 +19,6 @@ A simple web-based banking system built with Flask, MySQL, and Python. This appl
 ## Tech Stack
 - **Backend**: Flask (Python)
 - **Database**: MySQL
-- **Frontend**: HTML, CSS (custom styles)
+- **Frontend**: HTML, CSS (custom styles), Jinja2 templating
 - **Environment Management**: `python-dotenv` for `.env` file
 - **Dependencies**: `mysql-connector-python`, `flask`
