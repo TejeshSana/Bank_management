@@ -4,8 +4,8 @@ A simple web-based banking system built with Flask, MySQL, and Python. This appl
 
 ## ER Diagram for BANK MANAGEMENT SYSTEM
 
-<img align="centre"  src="bank_system.jpg"  />
-###
+<img align="left"  src="bank_system.jpg"  />
+
 
 
 ## Features
