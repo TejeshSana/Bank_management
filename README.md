@@ -4,7 +4,10 @@ A simple web-based banking system built with Flask, MySQL, and Python. This appl
 
 ## ER Diagram for BANK MANAGEMENT SYSTEM
 
-<img align="center"  src="bank_system.jpg"  />
+<img align="centre"  src="bank_system.jpg"  />
+###
+
+
 ## Features
 - **Account Creation**: Create a new account for existing or new customers with details like branch, account type, and initial balance.
 - **Balance Check**: View the current balance of an account by entering its ID.
